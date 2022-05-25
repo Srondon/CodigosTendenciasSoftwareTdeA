@@ -2,7 +2,7 @@
     INTEGRANTES:
 - Santiago Rondón Galvis
 - Ángela Maria Romero Arrieta
-"""
+""" 
 from flask import Flask, jsonify, request
 from flask_mysqldb import MySQL
 from config import config

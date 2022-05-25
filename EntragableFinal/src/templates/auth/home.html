@@ -1,0 +1,124 @@
+{% extends './base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block customCSS %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+{% endblock %}
+
+{% block body %}
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow" style="position: fixed;">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">SCOOP
+    </a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="navbar-nav">
+      <div class="nav-item text-nowrap">
+        <a class="nav-link px-3" href="#">Salir</a>
+      </div>
+    </div>
+  </header>
+  
+  <div class="container-fluid" style="background-color:gainsboro;">
+    <div class="row" >
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" style="position:relative;">
+              <div class="position-sticky pt-3">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">
+                      <span data-feather="home"></span>
+                      AÑADIR
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <form action="/login" method="post" class="add-form">
+                      <div class="form-group d-flex">
+
+                        <!-- INPUT AÑADIR -->
+
+                        <!-- 
+                          INPUT ID=           add_ID
+                          INPUT NOMBRE=       add_name_Curso
+                          INPUT  ENCARGADO=   add_name_Encargado
+                          INPUT CREDITOS=     add_number_Credito
+                         -->
+
+                        <input type="number" class="form-control rounded-left" placeholder=" ID" name="add_ID" required>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control rounded-left" placeholder="Nombre Curso" name="add_name_Curso" required>
+                      </div>
+                      <div class="form-group d-flex">
+                        <input type="text" class="form-control rounded-left" placeholder="Nombre del encargado" name="add_name_Encargado" required>
+                      </div>
+                      <div class="form-group d-flex">
+                        <input type="number" class="form-control rounded-left" placeholder=" Creditos" name="add_number_Credito" required>
+                      </div>
+                      <div class="form-group d-flex text-center" style="margin-left: 17;">
+                        <button type="value" class="btn btn-primary rounded  px-5">REGISTRAR</button>
+                      </div>
+                    </form>
+                  </li>
+
+                  <!-- INPUT ELIMINAR -->
+
+                        <!-- 
+                          INPUT ID=   delete_id_Curso
+                         -->
+
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">
+                      <span data-feather="home"></span>
+                      ELIMINAR
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <form action="/login" method="post" class="add-form">
+                      <div class="form-group">
+                        <input type="text" class="form-control rounded-left" placeholder="ID" name="delete_id_Curso" required>
+                      </div>
+                      <div class="form-group d-flex"style="margin-left: 19;">
+                        <button type="value" class="btn btn-primary rounded px-5" >ELIMINAR</button>
+                      </div>
+                    </form>
+                  </li>
+                </div>
+              </nav>
+  
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="position:relative; padding-top: 50px;" >
+  
+        <h2>Consultar Cursos</h2>
+        <div class="table-responsive">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">NOMBRE DEL CURSO</th>
+                <th scope="col">PROFESOR ENCARGADO</th>
+                <th scope="col">NUMERO DE CREDITOS</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <!-- INPUT TABLA -->
+
+              <tr>
+                <td>01</td><!-- INPUT ID -->
+                <td>cursoRamdom</td><!-- INPUT NOMBRE -->
+                <td>nombreRamdom</td><!-- INPUT ENCARGADO -->
+                <td>1000</td><!-- INPUT CREDITOS -->
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+{% endblock %}

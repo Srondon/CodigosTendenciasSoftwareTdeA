@@ -1,0 +1,66 @@
+{% extends './base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+{% endblock %}
+
+{% block body %}
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section"></h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-5">
+                    <div class="login-wrap p-4 p-md-5">
+                <div class="icon d-flex align-items-center justify-content-center">
+                </div>
+                
+                <h3 class="text-center mb-4">BIENVENIDOS AL TDEA</h3>
+                        <form action="/login" method="post" class="login-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control rounded-left" placeholder="Nombre Usuario" name="username" required>
+                    </div>
+                <div class="form-group d-flex">
+                <input type="password" class="form-control rounded-left" placeholder="Contraseña" name="password" required>
+                </div>
+                <div class="form-group d-md-flex">
+                    <div class="w-50">
+                        <label class="checkbox-wrap checkbox-primary">Recuerdame
+                                    <input type="checkbox" checked>
+                                    <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary rounded submit p-3 px-5">INICIAR</button>
+                </div>
+            </form>
+            {% with messages = get_flashed_messages() %}
+
+                {% if messages %}
+                <br/>
+                {% for messages in messages %}
+                <div class=" alert alert-primary alert-dismissible" role="alert" >
+                    <strong>{{ message }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar" ></button>
+                </div>
+
+                {% endfor %}
+
+                {% endif %}
+
+                {% endwith%}
+            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
